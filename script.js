@@ -13,7 +13,8 @@ function randomGenerator(charactersToInclude, passwordLength){
   var i = 0
   var lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
   var upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var specialChars = "!@#$%^&*()/+-'";
+  var specialChars = "~!?@ .|#;$%^&<>,[]=`_*():/+-'\"\\";
+  
   while (i < passwordLength){
     selectedCharacterType = charactersToInclude[i%n_characterTypes];
     switch (selectedCharacterType){
@@ -75,7 +76,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  console.log(passwordText.value)
 
 }
 
