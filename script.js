@@ -1,9 +1,8 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function assert(condition, message) {
+function assert(condition) {
   if (!condition) {
-      throw message || "Assertion failed";
+      throw "Assertion failed!";
   }
 }
 
@@ -34,7 +33,7 @@ function randomGenerator(charactersToInclude, passwordLength){
     i++;    
   }
 
-  assert(generatedPassword.length === passwordLength);
+  assert(generatedPassword.length == passwordLength);
 
   return generatedPassword;
 }
@@ -42,13 +41,15 @@ function randomGenerator(charactersToInclude, passwordLength){
 
 function generatePassword()
 {
-    let passwordLength = parseInt(prompt("Please enter the length of the password", 16));
+    var passwordLength = prompt("Please enter the length of the password");
     if (passwordLength != null) {
       if (passwordLength < 8){
         alert("Password needs to be at least 8 symbols!");
+        return "";
       }
       else if (passwordLength > 128){
         alert("Password needs to be at most 128 symbols!");
+        return "";
       }
       else{
         var characterOptions = ["lowercase", "uppercase", "numeric values", "special characters"]
@@ -60,6 +61,7 @@ function generatePassword()
         }
         if ( charactersToInclude.length === 0){
           alert("At least one character type should be selected!");
+          return "";
         }
         else{
           return randomGenerator(charactersToInclude, passwordLength);
@@ -67,11 +69,13 @@ function generatePassword()
       }
 
     }
+    else{
+      return "";
+    }
 }
 
-// Write password to the #password input
 function writePassword() {
-
+  
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -79,6 +83,5 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
