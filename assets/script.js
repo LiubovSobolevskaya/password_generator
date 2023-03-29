@@ -6,33 +6,39 @@ function assert(condition) {
   }
 }
 
+function createRndNmr(length){
+  return Math.floor(Math.random() *length);
+}
+
 function randomGenerator(charactersToInclude, passwordLength){
-  n_characterTypes = charactersToInclude.length;
-  generatedPassword = "";
+  nCharacterTypes = charactersToInclude.length;
+  var generatedPassword = "";
   var i = 0
   var lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
   var upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var specialChars = "~!?@ .|#;$%^&<>,[]=`_*():/+-'\"\\";
-  
+
   while (i < passwordLength){
-    selectedCharacterType = charactersToInclude[i%n_characterTypes];
+    var selectedIdx = createRndNmr(nCharacterTypes)
+    var selectedCharacterType = charactersToInclude[selectedIdx];
     switch (selectedCharacterType){
       case "lowercase":
-        generatedPassword += lowerCaseChars.charAt(Math.floor(Math.random() * lowerCaseChars.length));
+        generatedPassword += lowerCaseChars.charAt(createRndNmr(lowerCaseChars.length));
         break;
       case "uppercase":
-        generatedPassword += upperCaseChars.charAt(Math.floor(Math.random() * upperCaseChars.length));
+        generatedPassword += upperCaseChars.charAt(createRndNmr(upperCaseChars.length));
         break;    
       case "numeric values":
-        generatedPassword += Math.floor(Math.random() * 10);
+        generatedPassword += createRndNmr(10);
         break;
       case "special characters":
-        generatedPassword += specialChars.charAt(Math.floor(Math.random() * specialChars.length));
+        generatedPassword += specialChars.charAt(createRndNmr(specialChars.length));
         break;
     }
     i++;    
   }
 
+   
   assert(generatedPassword.length == passwordLength);
 
   return generatedPassword;

@@ -21,7 +21,7 @@ __________________________
 
 ## Mock-Up
 
-Here is the web application's appearance and functionality:
+Here is the web application's appearance.:
 ![](./assets/03-javascript-challenge-demo.png)
 
 ## Author Info
