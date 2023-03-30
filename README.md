@@ -5,6 +5,8 @@ _______________________
 
 If you need a new password that is secure, click a button to generate one. You will need to choose a length between 8 and 128 characters, and decide whether or not to include lowercase letters, uppercase letters, numbers, and/or special characters. At least one character type must be selected. Once you have answered all the prompts, the input will be validated. Finally, a password will be generated based on the selected criteria and either displayed on the page.
 
+
+[Deployed page](https://liubovsobolevskaya.github.io/password_generator/)
 __________________________
 
 ## Disclaimer
@@ -18,10 +20,10 @@ __________________________
 ## Code Example
 ```javascript
 var characterOptions = {
-      lowercase: "abcdefghijklmnopqrstuvwxyz",
-      uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-      numeric: "0123456789",
-      special: "~!?@ .|#;$%^&<>,[]=`_*():/+-'\"\\" 
+  lowercase: "abcdefghijklmnopqrstuvwxyz",
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  numeric: "0123456789",
+  special: "~!?@ .|#;$%^&<>,[]=`_*():/+-'\"\\" 
 };
 
 var generatedPassword = "";
