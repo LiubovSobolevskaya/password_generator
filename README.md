@@ -12,47 +12,25 @@ __________________________
 For the list of special characters I refered to [Wikipedia]( https://en.wikipedia.org/wiki/List_of_special_characters_for_passwords). For this reason, space is included to the list of special charaters. 
 
 ```javascript
-var specialChars = "~!?@ .|#;$%^&<>,[]=`_*():/+-'\"\\";
+special:  "~!?@ .|#;$%^&<>,[]=`_*():/+-'\"\\";
 ```
 __________________________
 ## Code Example
 ```javascript
-function randomGenerator(charactersToInclude, passwordLength){
-  
-  var nCharacterTypes = charactersToInclude.length;
+var characterOptions = {
+      lowercase: "abcdefghijklmnopqrstuvwxyz",
+      uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      numeric: "0123456789",
+      special: "~!?@ .|#;$%^&<>,[]=`_*():/+-'\"\\" 
+};
 
-  var generatedPassword = "";
-
-  var lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
-  var upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var specialChars = "~!?@ .|#;$%^&<>,[]=`_*():/+-'\"\\";
-  
-  var i = 0
-
-  while (i < passwordLength){
-    var selectedIdx = createRndNmr(nCharacterTypes)
-    var selectedCharacterType = charactersToInclude[selectedIdx];
-    switch (selectedCharacterType){
-      case "lowercase":
-        generatedPassword += lowerCaseChars.charAt(createRndNmr(lowerCaseChars.length));
-        break;
-      case "uppercase":
-        generatedPassword += upperCaseChars.charAt(createRndNmr(upperCaseChars.length));
-        break;    
-      case "numeric values":
-        generatedPassword += createRndNmr(10);
-        break;
-      case "special characters":
-        generatedPassword += specialChars.charAt(createRndNmr(specialChars.length));
-        break;
-    }
-    i++;    
-  }
-  
-  assert(generatedPassword.length == passwordLength);
-
-  return generatedPassword;
+var generatedPassword = "";
+for (var i = 0; i < passwordLength; i++) {
+  var charType = charactersToInclude[createRndNumber(charactersToInclude.length)];
+  generatedPassword += characterOptions[charType].charAt(createRndNumber(characterOptions[charType].length));
 }
+
+
 ```
 ## Technology Used 
 
